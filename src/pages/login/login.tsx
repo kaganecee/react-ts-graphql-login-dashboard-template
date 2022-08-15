@@ -2,9 +2,8 @@ import { FunctionComponent, useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { AUTH_TOKEN } from '../../constants/constants';
 import { LOGIN_MUTATION } from './mutation';
-import Button from 'react-bootstrap/Button';
+import { Button } from '../../components/button';
 import Form from 'react-bootstrap/Form';
-import { eventNames } from 'process';
 type loginProps = {};
 export const Login: FunctionComponent<loginProps> = () => {
     const [formState, setFormState] = useState({
@@ -25,7 +24,7 @@ export const Login: FunctionComponent<loginProps> = () => {
     });
     return (
         <div className="container loginPage justify-content-center d-flex flex-column">
-            <h4 className="mv3">Login</h4>
+            <h4 className="mb-4">Login</h4>
             <Form
                 onSubmit={(event) => {
                     event.preventDefault();
@@ -66,9 +65,13 @@ export const Login: FunctionComponent<loginProps> = () => {
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <button
+                    className="submitButtons"
+                    style={{ backgroundColor: 'rgb(98, 142, 255)' }}
+                    type="button"
+                >
                     Submit
-                </Button>
+                </button>
             </Form>
         </div>
     );
